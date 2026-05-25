@@ -58,8 +58,8 @@ const ConnectWalletPopup = ({
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#a855f7" />
-                <stop offset="100%" stopColor="#6366f1" />
+                <stop offset="0%" stopColor="#FED74D" />
+                <stop offset="100%" stopColor="#E08A00" />
               </linearGradient>
             </defs>
             <rect x="2" y="4" width="20" height="16" rx="2" />

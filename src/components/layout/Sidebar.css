@@ -68,13 +68,13 @@
 }
 
 .nav-item:hover {
-  color: var(--color-text-primary);
-  background: var(--color-bg-tertiary);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav-item.active {
-  color: var(--color-accent-cream);
-  background: var(--color-bg-secondary);
+  color: #FED74D;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* Bottom Section */
@@ -83,6 +83,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
 }
 
 .sidebar-user {
@@ -100,6 +101,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
+  overflow: hidden;
 }
 
 .avatar-trigger:hover {

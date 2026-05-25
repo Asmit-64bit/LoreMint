@@ -1,4 +1,6 @@
-/* AboutSection - Tabbed Component Styles */
+/* ==========================================================================
+   LoreMint NFT Detail - AboutSection Tabbed Component Styles
+   ========================================================================== */
 
 .about-section-tabbed {
   margin-top: 1.5rem;
@@ -11,12 +13,12 @@
 }
 
 .title-icon-svg {
-  color: #a855f7;
+  color: var(--color-accent-gold);
   flex-shrink: 0;
 }
 
 .no-data-icon-svg {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-muted);
   margin-bottom: 1rem;
 }
 
@@ -37,7 +39,7 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border-default);
   padding-bottom: 0.5rem;
   overflow-x: auto;
 }
@@ -47,30 +49,26 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .about-tab:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
 }
 
 .about-tab.active {
-  background: linear-gradient(
-    135deg,
-    rgba(168, 85, 247, 0.3),
-    rgba(59, 130, 246, 0.3)
-  );
-  border-color: rgba(168, 85, 247, 0.5);
-  color: white;
+  background: var(--gradient-gold);
+  border-color: var(--color-accent-gold);
+  color: var(--color-text-dark);
 }
 
 .tab-icon {
@@ -110,26 +108,26 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-bg-secondary);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-card);
 }
 
 .about-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .about-value {
   font-size: 0.95rem;
-  color: white;
-  font-weight: 500;
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 .about-value.link {
-  color: #a855f7;
+  color: var(--color-accent-gold);
   text-decoration: none;
 }
 
@@ -144,14 +142,14 @@
 
 .about-subtitle {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .about-text {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text-primary);
   line-height: 1.6;
 }
 
@@ -172,36 +170,36 @@
   flex-direction: column;
   gap: 0.15rem;
   padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-bg-secondary);
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-card);
 }
 
 .trait-type {
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-tertiary);
   text-transform: uppercase;
 }
 
 .trait-value {
   font-size: 0.8rem;
-  color: white;
-  font-weight: 500;
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 .trait-rarity {
   font-size: 0.6rem;
   padding: 0.1rem 0.4rem;
   border-radius: 10px;
-  background: rgba(168, 85, 247, 0.2);
-  color: #c084fc;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-gold);
   width: fit-content;
   margin-top: 0.2rem;
 }
 
 .traits-more {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-tertiary);
   margin-top: 0.75rem;
   text-align: center;
 }
@@ -213,7 +211,7 @@
   gap: 1rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border-default);
 }
 
 .collection-avatar-large {
@@ -221,7 +219,7 @@
   height: 64px;
   border-radius: 12px;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--color-border-default);
 }
 
 .collection-header-info {
@@ -230,8 +228,8 @@
 
 .collection-name-large {
   font-size: 1.25rem;
-  color: white;
-  font-weight: 600;
+  color: var(--color-text-primary);
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -243,7 +241,7 @@
 
 .collection-symbol {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-tertiary);
   margin-top: 0.25rem;
   display: block;
 }
@@ -261,20 +259,20 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-bg-secondary);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-card);
 }
 
 .stat-number {
   font-size: 1.1rem;
   font-weight: 700;
-  color: white;
+  color: var(--color-text-primary);
 }
 
 .stat-label {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-tertiary);
   text-transform: uppercase;
   margin-top: 0.25rem;
 }
@@ -293,18 +291,18 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-secondary);
   font-size: 0.85rem;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
   transform: translateY(-1px);
 }
 
@@ -333,9 +331,9 @@
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-bg-secondary);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border-card);
   margin-bottom: 1.5rem;
 }
 
@@ -347,15 +345,13 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(168, 85, 247, 0.3),
-    rgba(59, 130, 246, 0.3)
-  );
+  background: var(--gradient-gold);
+  color: var(--color-text-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .creator-info {
@@ -365,14 +361,14 @@
 
 .creator-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   margin-bottom: 0.25rem;
 }
 
 .creator-address {
   font-size: 0.85rem;
-  color: #a855f7;
+  color: var(--color-accent-gold);
   word-break: break-all;
   text-decoration: none;
 }
@@ -383,7 +379,7 @@
 
 .creator-note {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-secondary);
   margin-top: 0.5rem;
   line-height: 1.4;
 }
@@ -393,7 +389,7 @@
 }
 
 .no-socials {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -406,7 +402,7 @@
   justify-content: center;
   padding: 2rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-muted);
 }
 
 .no-data-icon {

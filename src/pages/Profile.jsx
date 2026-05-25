@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAccount, useDisconnect } from "wagmi";
 import { useNFTData } from "../hooks/useNFTData";
@@ -11,6 +11,52 @@ const Profile = () => {
   const { disconnect } = useDisconnect();
   const { nfts, loading } = useNFTData(address, isConnected);
   const [popupDismissed, setPopupDismissed] = useState(false);
+  const [profilePic, setProfilePic] = useState("");
+  const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    if (address) {
+      const storedPic = localStorage.getItem(`loremint_avatar_${address}`);
+      setProfilePic(storedPic || "");
+    }
+  }, [address]);
+
+  const handleAvatarClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (!file.type.startsWith("image/")) {
+        alert("Please select an image file.");
+        return;
+      }
+      if (file.size > 2 * 1024 * 1024) {
+        alert("File is too large. Please select an image under 2MB.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const base64String = event.target.result;
+        if (address) {
+          localStorage.setItem(`loremint_avatar_${address}`, base64String);
+          setProfilePic(base64String);
+          window.dispatchEvent(new Event("loremint_avatar_updated"));
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemovePic = () => {
+    if (address) {
+      localStorage.removeItem(`loremint_avatar_${address}`);
+      setProfilePic("");
+      window.dispatchEvent(new Event("loremint_avatar_updated"));
+    }
+  };
 
   // Handle popup close - navigate away if still not connected
   const handlePopupClose = () => {
@@ -88,11 +134,37 @@ const Profile = () => {
         {/* Profile Header */}
         <section className="profile-header glass-card">
           <div className="profile-info">
-            <div className="profile-avatar">
-              <span className="avatar-placeholder">
-                {address ? address.substring(2, 4).toUpperCase() : "??"}
-              </span>
+            <div className="profile-avatar" onClick={handleAvatarClick} title="Change Profile Picture">
+              {profilePic ? (
+                <img src={profilePic} alt="Avatar" className="avatar-img" />
+              ) : (
+                <span className="avatar-placeholder">
+                  {address ? address.substring(2, 4).toUpperCase() : "??"}
+                </span>
+              )}
+              <div className="avatar-edit-overlay">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+              </div>
             </div>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              accept="image/*"
+              style={{ display: "none" }}
+            />
             <div className="profile-details">
               <h1 className="profile-address">{formatAddress(address)}</h1>
               <p className="wallet-label">Connected Wallet</p>
@@ -100,6 +172,24 @@ const Profile = () => {
           </div>
 
           <div className="profile-actions">
+            {profilePic && (
+              <button onClick={handleRemovePic} className="btn btn-secondary btn-danger">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  <line x1="10" y1="11" x2="10" y2="17" />
+                  <line x1="14" y1="11" x2="14" y2="17" />
+                </svg>
+                Remove Picture
+              </button>
+            )}
             <button
               onClick={() => navigator.clipboard.writeText(address)}
               className="btn btn-secondary"

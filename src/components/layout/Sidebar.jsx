@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -7,7 +7,26 @@ import "./Sidebar.css";
 import logo from "../../assets/logo.svg";
 
 const Sidebar = () => {
-  const { isConnected } = useAccount();
+  const { address, isConnected } = useAccount();
+  const [profilePic, setProfilePic] = useState("");
+
+  useEffect(() => {
+    const loadAvatar = () => {
+      if (address) {
+        const stored = localStorage.getItem(`loremint_avatar_${address}`);
+        setProfilePic(stored || "");
+      } else {
+        setProfilePic("");
+      }
+    };
+
+    loadAvatar();
+
+    window.addEventListener("loremint_avatar_updated", loadAvatar);
+    return () => {
+      window.removeEventListener("loremint_avatar_updated", loadAvatar);
+    };
+  }, [address]);
 
   return (
     <aside className="sidebar">
@@ -98,9 +117,13 @@ const Sidebar = () => {
               <ConnectButton.Custom>
                 {({ account, openAccountModal }) => (
                   <button onClick={openAccountModal} className="avatar-trigger">
-                    <div className="avatar-placeholder">
-                      {account?.displayName?.charAt(0) || "?"}
-                    </div>
+                    {profilePic ? (
+                      <img src={profilePic} alt="Avatar" className="avatar-img" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+                    ) : (
+                      <div className="avatar-placeholder">
+                        {account?.displayName?.charAt(0) || "?"}
+                      </div>
+                    )}
                   </button>
                 )}
               </ConnectButton.Custom>

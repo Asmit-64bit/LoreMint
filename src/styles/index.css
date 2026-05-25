@@ -2,65 +2,69 @@
 
 :root {
   /* =========================================
-     LoreMint Design System - Purple/Cream Theme
+     LoreMint Design System - White/Gold Theme
      ========================================= */
 
   /* Primary Background Colors */
-  --color-bg-primary: #2d2640;
-  --color-bg-secondary: #3d3356;
-  --color-bg-tertiary: #4a4363;
-  --color-bg-elevated: #564d70;
-  --color-bg-dark: #1e1a2e;
+  --color-bg-primary: #ffffff; /* Solid pure white background */
+  --color-bg-secondary: #ffffff; /* Pure white for elements/cards */
+  --color-bg-tertiary: #FAF9F6; /* Soft warm cream for neutral/neutral layers */
+  --color-bg-elevated: #F5F5F5; /* Elevated hover light gray */
+  --color-bg-dark: #151515; /* High-contrast black for sidebar/dark panels */
 
-  /* Surface colors - Dark Purple Theme */
-  --color-surface-cream: #f5f0eb;
-  --color-surface-lavender: #e8e3f3;
-  --color-surface-card: #faf8f6;
-  --color-surface-glass: rgba(61, 51, 86, 0.85);
-  --color-surface-glass-dark: rgba(45, 38, 64, 0.95);
-  --color-surface-glass-light: rgba(245, 240, 235, 0.95);
-  --color-surface-overlay: rgba(45, 38, 64, 0.8);
+  /* Surface colors - Soft Warm White & Gold Theme */
+  --color-surface-cream: #ffffff;
+  --color-surface-lavender: #FFF9E6; /* Light yellow/gold instead of lavender */
+  --color-surface-card: #ffffff;
+  --color-surface-glass: rgba(255, 255, 255, 0.85);
+  --color-surface-glass-dark: rgba(21, 21, 21, 0.95);
+  --color-surface-glass-light: rgba(255, 255, 255, 0.95);
+  --color-surface-overlay: rgba(21, 21, 21, 0.4);
 
-  /* Text hierarchy - High Contrast for Dark Theme */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #e2dceb; /* Much lighter lavender/grey */
-  --color-text-tertiary: #b8b2cc; /* Lighter than before */
-  --color-text-muted: #948ea5; /* Visible but clearly muted */
-  --color-text-dark: #2d2640;
-  --color-text-dark-secondary: #564d70;
+  /* Text hierarchy - High Contrast for Light Theme */
+  --color-text-primary: #151515; /* Bold charcoal black */
+  --color-text-secondary: #4F4F4F; /* Deep neutral charcoal gray */
+  --color-text-tertiary: #7A7A7A; /* Medium neutral gray */
+  --color-text-muted: #9E9E9E; /* Muted cool gray */
+  --color-text-dark: #151515;
+  --color-text-dark-secondary: #333333;
 
-  /* Accent colors - Warm cream/beige */
-  --color-accent-cream: #e8ddd0;
-  --color-accent-beige: #d4c8b8;
-  --color-accent-gold: #c9a962;
-  --color-accent-lavender: #b8a8d9;
-  --color-accent-soft: rgba(232, 221, 208, 0.15);
-  --color-accent-medium: rgba(232, 221, 208, 0.3);
+  /* Accent colors - Warm gold/yellow */
+  --color-accent-cream: #ffffff;
+  --color-accent-beige: #FED74D; /* Beautiful yellow/gold */
+  --color-accent-gold: #E08A00; /* Deep gold accent */
+  --color-accent-lavender: #FED74D; /* Unified to our custom yellow */
+  --color-accent-soft: rgba(254, 215, 77, 0.12);
+  --color-accent-medium: rgba(254, 215, 77, 0.25);
 
   /* ETH/Crypto Colors */
   --color-eth-primary: #627eea;
   --color-eth-light: #8a9fef;
 
   /* Status colors */
-  --color-success: #6fcf97;
-  --color-warning: #f2c94c;
+  --color-success: #27ae60;
+  --color-warning: #FED74D;
   --color-error: #eb5757;
   --color-info: #56ccf2;
 
   /* Border colors */
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-default: rgba(255, 255, 255, 0.12);
-  --color-border-strong: rgba(255, 255, 255, 0.2);
-  --color-border-cream: rgba(232, 221, 208, 0.3);
-  --color-border-card: rgba(45, 38, 64, 0.1);
+  --color-border-subtle: rgba(0, 0, 0, 0.04);
+  --color-border-default: rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.15);
+  --color-border-cream: rgba(224, 138, 0, 0.15);
+  --color-border-card: rgba(0, 0, 0, 0.06);
 
   /* Gradients */
-  --gradient-purple: linear-gradient(135deg, #3d3356 0%, #2d2640 100%);
-  --gradient-cream: linear-gradient(135deg, #faf8f6 0%, #f5f0eb 100%);
-  --gradient-card: linear-gradient(145deg, #ffffff 0%, #f5f0eb 100%);
+  --gradient-purple: linear-gradient(135deg, #2a2a2a 0%, #151515 100%);
+  --gradient-cream: linear-gradient(135deg, #ffffff 0%, #FAF9F6 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #FAF9F6 100%);
   --gradient-eth: linear-gradient(135deg, #627eea 0%, #8a9fef 100%);
-  --gradient-gold: linear-gradient(135deg, #c9a962 0%, #e8ddd0 100%);
-  --gradient-lavender: linear-gradient(135deg, #b8a8d9 0%, #e8e3f3 100%);
+  --gradient-gold: linear-gradient(135deg, #FED74D 0%, #E08A00 100%);
+  --gradient-lavender: linear-gradient(135deg, #FED74D 0%, #FFF9E6 100%);
+  --gradient-accent: var(--gradient-gold);
+  --gradient-accent-soft: linear-gradient(135deg, rgba(254, 215, 77, 0.1) 0%, rgba(224, 138, 0, 0.05) 100%);
+  --glow-accent: 0 0 15px rgba(254, 215, 77, 0.4);
+  --glow-accent-strong: 0 0 25px rgba(254, 215, 77, 0.6);
 
   /* Typography */
   --font-display:
@@ -130,19 +134,19 @@
   --radius-3xl: 2rem; /* 32px */
   --radius-full: 9999px;
 
-  /* Shadows - Soft and elegant */
-  --shadow-sm: 0 2px 8px rgba(45, 38, 64, 0.08);
-  --shadow-md: 0 4px 16px rgba(45, 38, 64, 0.12);
-  --shadow-lg: 0 8px 32px rgba(45, 38, 64, 0.16);
-  --shadow-xl: 0 16px 48px rgba(45, 38, 64, 0.2);
-  --shadow-2xl: 0 24px 64px rgba(45, 38, 64, 0.24);
-  --shadow-card: 0 4px 20px rgba(45, 38, 64, 0.1);
-  --shadow-card-hover: 0 8px 40px rgba(45, 38, 64, 0.18);
+  /* Shadows - Soft and elegant for light background */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.05);
 
   /* Glass morphism */
   --glass-blur: 20px;
   --glass-border: var(--color-border-default);
-  --glass-bg: var(--color-surface-glass-dark);
+  --glass-bg: var(--color-surface-glass);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -187,10 +191,6 @@ body {
   line-height: var(--leading-normal);
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
-  background-image:
-    radial-gradient(at 0% 0%, rgba(184, 168, 217, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(61, 51, 86, 0.15) 0px, transparent 50%);
-  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -314,9 +314,9 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-/* Glass Card - Dark variant */
+/* Glass Card - primary variant */
 .glass-card {
-  background: var(--color-surface-glass-dark);
+  background: var(--color-surface-glass);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-2xl);
   backdrop-filter: blur(var(--glass-blur));
