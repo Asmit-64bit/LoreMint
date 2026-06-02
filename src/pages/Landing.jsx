@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import logo from "../assets/logo.svg";
@@ -102,7 +103,7 @@ const Landing = () => {
             </p>
 
             <ConnectButton.Custom>
-              {({ account, chain, openAccountModal, openConnectModal, authenticationStatus, mounted }) => {
+              {({ account, chain, openConnectModal, authenticationStatus, mounted }) => {
                 const ready = mounted && authenticationStatus !== "loading";
                 const connected = ready && account && chain;
 

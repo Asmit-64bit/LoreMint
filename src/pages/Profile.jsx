@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAccount, useDisconnect } from "wagmi";
 import { useNFTData } from "../hooks/useNFTData";
@@ -11,15 +11,20 @@ const Profile = () => {
   const { disconnect } = useDisconnect();
   const { nfts, loading } = useNFTData(address, isConnected);
   const [popupDismissed, setPopupDismissed] = useState(false);
-  const [profilePic, setProfilePic] = useState("");
+  const [prevAddress, setPrevAddress] = useState(address);
+  const [profilePic, setProfilePic] = useState(() => {
+    if (address) {
+      return localStorage.getItem(`loremint_avatar_${address}`) || "";
+    }
+    return "";
+  });
   const fileInputRef = useRef(null);
 
-  useEffect(() => {
-    if (address) {
-      const storedPic = localStorage.getItem(`loremint_avatar_${address}`);
-      setProfilePic(storedPic || "");
-    }
-  }, [address]);
+  if (address !== prevAddress) {
+    setPrevAddress(address);
+    const storedPic = address ? localStorage.getItem(`loremint_avatar_${address}`) || "" : "";
+    setProfilePic(storedPic);
+  }
 
   const handleAvatarClick = () => {
     fileInputRef.current?.click();
